@@ -114,7 +114,7 @@ class HvacPage(BaseProjectPage):
         """
         Fills in phone number
 
-        :param phone_number: phone number (10 digits)
+        :param phone_number: phone number (10 digits, e.g.5556667788)
         """
 
         assert len(phone_number) == 10, "The length of the phone number must be 10 digits"

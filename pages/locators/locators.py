@@ -17,7 +17,6 @@ class BaseComponentLocators:
     """
     Common locators for base component
     """
-    step_items = (By.CSS_SELECTOR, '#StepBodyId [class*="__list"] [class*="__item"]')
     step_warning = (By.CSS_SELECTOR, '#StepBodyId [class*="text-orangeDeep"]')
     next_button = (By.CSS_SELECTOR, '[data-autotest-next]')
     yes_button = (By.CSS_SELECTOR, '[data-autotest-yes]')
@@ -47,8 +46,6 @@ class HvacPageLocators:
     name_input = (By.CSS_SELECTOR, '[data-autotest-fullname-text]')
     email_input = (By.CSS_SELECTOR, '[data-autotest-email-email]')
     phone_number_input = (By.CSS_SELECTOR, '[data-autotest-phonenumber-tel]')
-
-    we_are_sorry_title = (By.CSS_SELECTOR, '.weAreSorry__title')
 
 
 class WeAreSorryPageLocators:

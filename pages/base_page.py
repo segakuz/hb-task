@@ -82,36 +82,6 @@ class BasePage:
             return False
         return True
 
-    def is_element_invisible(self, element: WebElement|tuple[str, str], timeout: float = 2):
-        """
-        Checks that the element is invisible
-
-        :param element: tuple of search strategy and selector or WebElement
-        :param timeout: timeout of waiting
-        :returns: bool
-        """
-
-        try:
-            self.wait(timeout=timeout).until(EC.invisibility_of_element(element))
-        except TimeoutException:
-            return False
-        return True
-
-    def are_elements_visible(self, locator: tuple[str, str], timeout: float = 2):
-        """
-        Checks that all elements are visible
-
-        :param locator: tuple of search strategy and selector
-        :param timeout: timeout of waiting
-        :returns: bool
-        """
-
-        try:
-            self.wait(timeout=timeout).until(EC.visibility_of_all_elements_located(locator))
-        except TimeoutException:
-            return False
-        return True
-
     def is_element_present(self, locator: tuple[str, str], timeout: float = 2):
         """
         Checks that the element is present (does not mean it is visible)
@@ -124,21 +94,6 @@ class BasePage:
         try:
             self.wait(timeout=timeout).until(EC.presence_of_element_located(locator))
         except TimeoutException:
-            return False
-        return True
-
-    def is_element_present_in_element(self, element: WebElement, locator: tuple):
-        """
-        Checks that the element is present in another element
-
-        :param element: WebElement
-        :param locator: tuple of search strategy and selector
-        :returns: bool
-        """
-
-        try:
-            element.find_element(*locator)
-        except NoSuchElementException:
             return False
         return True
 
@@ -205,18 +160,6 @@ class BasePage:
         assert self.is_element_visible(locator, timeout), \
         msg if msg else f'Element with locator {locator} should be visible, but it is invisible'
 
-    def should_be_all_visible(self, locator: tuple[str, str], timeout: float = 2, msg: str = ""):
-        """
-        Checks that the elements are visible
-
-        :param locator: tuple of search strategy and selector
-        :param timeout: timeout of waiting
-        :param msg: message
-        """
-
-        assert self.are_elements_visible(locator, timeout), \
-        msg if msg else f'Elements with locator {locator} should be visible, but they are invisible'
-
     def should_be_present(self, locator: tuple[str, str], timeout: float = 2, msg: str = ""):
         """
         Checks that the element is present
@@ -228,18 +171,6 @@ class BasePage:
 
         assert self.is_element_present(locator, timeout), \
         msg if msg else f'Element with locator {locator} should be presented, but it is not'
-
-    def should_be_invisible(self, element: WebElement, timeout: float = 2, msg: str = ""):
-        """
-        Checks that the element is invisible
-
-        :param element: WebElement
-        :param timeout: timeout of waiting
-        :param msg: message
-        """
-
-        assert self.is_element_invisible(element, timeout), \
-        msg if msg else f'Element with locator {element} should be invisible, but it is visible'
 
     def should_be_checked(self, element: WebElement, input_inside: bool = False, msg: str = ''):
         """

@@ -1,9 +1,11 @@
+import pytest
 from pages.hvac_page import HvacPage
 from pages.we_are_sorry_page import WeAreSorryPage
 from pages.links.links import HvacPageLinks
 from utils.functions import generate_email, generate_name, generate_phone_number
 
 
+@pytest.mark.acceptance
 class TestHvacPageQuiz:
     """
     Tests quiz on the HVAC page

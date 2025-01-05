@@ -15,5 +15,6 @@ pytest -v --capture=sys --tb=line --html=report.html
 ```
 Running tests with mark
 ```sh
+pytest -v --tb=line -m smoke
 pytest -v --tb=line -m acceptance
 ```

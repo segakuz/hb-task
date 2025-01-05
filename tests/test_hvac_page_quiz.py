@@ -19,7 +19,7 @@ class TestHvacPageQuiz:
 
     def test_01_pass_quiz_without_energy_source_step(self, browser):
         """
-        Tests hvac page quiz with only first answers, without the energy source step
+        Tests hvac page quiz without the energy source step
         """
 
         type_of_project = 'Replacement/installation'
